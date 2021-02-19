@@ -26,7 +26,6 @@
     owner: root
     group: root
     mode: 0644
-    directory_mode: 0644
 
 - name: Generate scripts
   template: src={{item}}.j2 dest={{openvpn_etcdir}}/{{item}} mode=0700

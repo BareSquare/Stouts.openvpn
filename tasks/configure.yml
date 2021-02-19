@@ -27,6 +27,12 @@
     group: root
     mode: 0644
 
+- name: Create symbolic link for easy-rsa cnf file
+  ansible.builtin.file:
+    src: /etc/openvpn/easy-rsa/openssl-1.0.0.cnf
+    dest: /etc/openvpn/easy-rsa/openssl.cnf
+    state: link
+
 - name: Generate scripts
   template: src={{item}}.j2 dest={{openvpn_etcdir}}/{{item}} mode=0700
   with_items: [vars, build-server.sh, build-client.sh, revoke-client.sh]
